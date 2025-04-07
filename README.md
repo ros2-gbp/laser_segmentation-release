@@ -1,5 +1,5 @@
 # laser_segmentation
-![ROS2](https://img.shields.io/badge/ros2-humble-blue?logo=ros&logoColor=white)
+![ROS2](https://img.shields.io/badge/ros2-jazzy-blue?logo=ros&logoColor=white)
 ![License](https://img.shields.io/github/license/ajtudela/laser_segmentation)
 [![Build](https://github.com/ajtudela/laser_segmentation/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/ajtudela/laser_segmentation/actions/workflows/build.yml)
 [![codecov](https://codecov.io/gh/ajtudela/laser_segmentation/graph/badge.svg?token=R48HZO62SQ)](https://codecov.io/gh/ajtudela/laser_segmentation)
@@ -7,7 +7,7 @@
 
 ## Overview
 
-Implementation of differents algorithms for segmentation of laserscans, splitting them into subsets of beams, with a ROS2 interface. The currently implemented algorithm are:
+Implementation of different algorithms for segmentation of laserscans, splitting them into subsets of beams, with a ROS2 interface. The currently implemented algorithm are:
 
 * **`Jump distance clustering:`** widely used method for 2D laser range data in mobile robotics. It's a simple and fast method to segment the scans: if the Euclidean distance between two adjacent beams exceeds a given threshold distance, a new segment is generated.
 * **`Jump distance clustering and merge:`** Similar algorithm as above but checks if pre-predecessor segments are close to each other. This deals with over-segmented data with many small cluster in outdoor environment. It uses the same threshold condition twice. 
@@ -24,31 +24,45 @@ Includes a dynamic reconfigure server parameter to change online the configurati
 
 **Author: Alberto Tudela<br />**
 
-The laser_segmentation package has been tested under [ROS2] Humble on [Ubuntu] 22.04. This is research code, expect that it changes often and any fitness for a particular purpose is disclaimed.
+The laser_segmentation package has been tested under [ROS2] Jazzy on [Ubuntu] 24.04. This is research code, expect that it changes often and any fitness for a particular purpose is disclaimed.
 
 ## Installation
+
+### Binaries
+
+On Ubuntu 24.04 you can install the latest version of this package using the following command
+
+```bash
+sudo apt-get update
+sudo apt-get install ros-jazzy-laser-segmentation
+```
 
 ### Building from Source
 
 #### Dependencies
 
-- [Robot Operating System (ROS) 2](https://docs.ros.org/en/humble/) (middleware for robotics),
-- [slg_msgs](https://github.com/ajtudela/slg_msgs) (Library and messages to interact with laser related geometry - use Humble branch),
+- [Robot Operating System (ROS) 2](https://docs.ros.org/en/jazzy/) (middleware for robotics),
+- [slg_msgs](https://github.com/ajtudela/slg_msgs) (Library and messages to interact with laser related geometry - use Jazzy branch),
 
 #### Building
 
 To build from source, clone the latest version from the main repository into your colcon workspace and compile the package using
 
-	cd colcon_workspace/src
-	git clone https://github.com/ajtudela/laser_segmentation.git -b humble
-	cd ../
-	rosdep install -i --from-path src --rosdistro humble -y
-	colcon build --symlink-install
+```bash
+cd colcon_workspace/src
+git clone https://github.com/ajtudela/laser_segmentation.git -b jazzy
+cd ../
+rosdep install -i --from-path src --rosdistro jazzy -y
+colcon build --symlink-install
+```
 
 ## Usage
 
 With some scan source running, run the laser_segmentation node with:
-	ros2 launch laser_segmentation segmentation.launch.py
+
+```bash
+ros2 launch laser_segmentation segmentation.launch.py
+```
 
 ## Nodes
 
@@ -133,8 +147,8 @@ Segmentation of the laserscans.
 	Parameter for noise reduction in "Santos" and "Dietmayer" algorithms.
 
 [Ubuntu]: https://ubuntu.com/
-[ROS2]: https://docs.ros.org/en/humble/
+[ROS2]: https://docs.ros.org/en/jazzy/
 [Rviz2]: https://github.com/ros2/rviz
-[sensor_msgs/LaserScan]: https://docs.ros2.org/humble/api/sensor_msgs/msg/LaserScan.html
+[sensor_msgs/LaserScan]: https://docs.ros2.org/jazzy/api/sensor_msgs/msg/LaserScan.html
 [slg_msgs/SegmentArray]: https://github.com/ajtudela/slg_msgs/blob/-/msg/SegmentArray.msg
-[visualization_msgs/MarkerArray]: https://docs.ros2.org/humble/api/visualization_msgs/msg/MarkerArray.html
+[visualization_msgs/MarkerArray]: https://docs.ros2.org/jazzy/api/visualization_msgs/msg/MarkerArray.html
