@@ -2,10 +2,6 @@
 Changelog for package laser_segmentation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-3.0.3 (06-02-2025)
-------------------
-* First jazzy release.
-
 3.0.2 (31-07-2024)
 ------------------
 * Update to use modern CMake idioms.
