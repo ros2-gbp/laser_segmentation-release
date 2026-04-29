@@ -1,0 +1,12 @@
+Source: ros-lyrical-laser-segmentation
+Section: misc
+Priority: optional
+Maintainer: Alberto Tudela <ajtudela@gmail.com>
+Build-Depends: debhelper (>= 9.0.0), ros-lyrical-ament-cmake, ros-lyrical-ament-cmake-gtest <!nocheck>, ros-lyrical-ament-lint-auto <!nocheck>, ros-lyrical-ament-lint-common <!nocheck>, ros-lyrical-rclcpp, ros-lyrical-rclcpp-components, ros-lyrical-rclcpp-lifecycle, ros-lyrical-sensor-msgs, ros-lyrical-slg-msgs, ros-lyrical-visualization-msgs, ros-lyrical-ros-workspace
+Homepage: https://index.ros.org/p/laser_segmentation/#lyrical
+Standards-Version: 3.9.2
+
+Package: ros-lyrical-laser-segmentation
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-lyrical-rclcpp, ros-lyrical-rclcpp-components, ros-lyrical-rclcpp-lifecycle, ros-lyrical-sensor-msgs, ros-lyrical-slg-msgs, ros-lyrical-visualization-msgs, ros-lyrical-ros-workspace
+Description: Implementation of algorithms for segmentation of laserscans.
